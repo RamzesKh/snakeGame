@@ -11,10 +11,9 @@ class Snake:
             newTurtle.penup()
             newTurtle.clear()
             self.turtles.append(newTurtle)
-            print(newTurtle.pos())
         self.head = self.turtles[0]
         self.turtles[0].setheading(0)
-        print(self.head.pos())
+
 
     def add_segment(self):
         newTurtle = Turtle("square")
@@ -31,6 +30,19 @@ class Snake:
             newTurtle.setposition(position_x, position_y)
 
         self.turtles.append(newTurtle)
+
+    def reset(self):
+        if len(self.turtles) > 3:
+            for turtle in self.turtles[3:]:
+                turtle.hideturtle()
+                self.turtles.remove(turtle)
+            print(len(self.turtles))
+        self.turtles[0].goto(0,0)
+        self.turtles[0].goto(-20,0)
+        self.turtles[0].goto(-40,0)
+
+
+
 
 
 

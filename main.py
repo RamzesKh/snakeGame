@@ -24,7 +24,6 @@ screen.onkey(snake.Right, "Right")
 
 
 while game_is_on:
-
     screen.update()
     snake.move()
     time.sleep(0.05)
@@ -35,12 +34,13 @@ while game_is_on:
         snake.add_segment()
 
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() <-290:
-        game_is_on = False
-        scoreboard.gameOver()
+        snake.reset()
+        scoreboard.reset()
+
     for turtle in snake.turtles[1:]:
         if snake.head.distance(turtle) < 10:
-            game_is_on = False
-            scoreboard.gameOver()
+            snake.reset()
+            scoreboard.reset()
 
 
 
